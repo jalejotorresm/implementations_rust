@@ -1,3 +1,4 @@
 fn main() {
-    implementations::fibonacci();
+    //implementations::fibonacci();
+    implementations::persona();
 }
