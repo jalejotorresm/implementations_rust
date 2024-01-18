@@ -1,3 +1,6 @@
+use num_bigint::BigUint;
+use regex::Regex;
+
 //Implementacion de la secuencia Fibonacci
 pub fn fibonacci() {
     fn imp_fibonacci() {
@@ -141,7 +144,7 @@ pub fn binario() {
 //Conversion de Binario a Decimal
 pub fn decimal() {
     fn a_decimal() {
-        println!("'\n--- Conversor de Binario a Decimal ---\n");
+        println!("\n--- Conversor de Binario a Decimal ---\n");
         let numero = set_binario();
         volver_dec(numero);
     }
@@ -198,4 +201,55 @@ pub fn decimal() {
     }
 
     a_decimal();
+}
+
+//Calculo de un factorial
+pub fn factorial () {
+    fn hacer_factorial () {
+        print!("\n--- Calculadore de Factoriales ---\n");
+
+        print_factorial();
+    }
+
+    fn set_numero () -> u128 {
+        println!("Dame un numero para calcular: ");
+        let mut input = String::new();
+
+        std::io::stdin().read_line(&mut input).expect("Necesito informacion para comenzar");
+
+        let input = input.trim();
+
+        let verificador = Regex::new(r"^-[0-9]+$").unwrap();
+
+        if verificador.is_match(&input) {
+            println!("Este programa no recibe numeros negativos, letras y/o simbolos");
+            std::process::exit(1)
+        }
+
+        let base = input.parse().expect("Esperaba un numero");
+
+        base
+    }
+
+    fn set_factorial (numero: u128) -> BigUint {
+        let base = BigUint::from(numero);
+
+        let cero: BigUint = BigUint::from(0u8);
+
+        let uno: BigUint = BigUint::from(1u8);
+
+        match base {
+            x if x == cero || x == uno => uno,
+            _ => base * set_factorial(numero -1) 
+        }
+    }
+
+    fn print_factorial () {
+        let base = set_numero();
+        let factorial = set_factorial(base);
+
+        println!("El factorial de {} es: {}", base, factorial);
+    } 
+
+    hacer_factorial();
 }
