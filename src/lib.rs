@@ -206,13 +206,13 @@ pub fn decimal() {
 //Calculo de un factorial
 pub fn factorial () {
     fn hacer_factorial () {
-        print!("\n--- Calculadore de Factoriales ---\n");
+        print!("\n--- Calculadora de Factoriales ---\n");
 
         print_factorial();
     }
 
     fn set_numero () -> u128 {
-        println!("Dame un numero para calcular: ");
+        println!("\nDame un numero para calcular: ");
         let mut input = String::new();
 
         std::io::stdin().read_line(&mut input).expect("Necesito informacion para comenzar");
