@@ -248,7 +248,7 @@ pub fn factorial () {
         let base = set_numero();
         let factorial = set_factorial(base);
 
-        println!("El factorial de {} es: {}", base, factorial);
+        println!("\nEl factorial de {} es: {}\n", base, factorial);
     } 
 
     hacer_factorial();
