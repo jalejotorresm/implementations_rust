@@ -1,10 +1,58 @@
 use num_bigint::BigUint;
 use regex::Regex;
 
+//Selector de implementaciones
+pub fn selector () {
+    fn mensaje_selector () {
+        println!("Estas son las opciones disponibles: \n");
+        println!("1 - Calcula la Secuencia de Fibonacci");
+        println!("2 - Crea un struct de persona con tu nombre y hazlo saludar");
+        println!("3 - Convierte un numero decimal a binario");
+        println!("4 - Convierte un numero binario a decimal");
+        println!("5 - Calcula el factorial de un numero");
+        println!("\nSelecciona la opcion que deseas explorar:");
+
+        opciones()
+    }
+
+    fn opciones () {
+        let mut input = String::new();
+
+        std::io::stdin().read_line(&mut input).expect("Necesito una opcion para continuar");
+
+        let input = input.trim();
+
+        let regex = Regex::new(r"^[0-9]+$").unwrap();
+
+        if !(regex.is_match(input)) {
+            println!("\nLa opcion que me diste no es un numero. Intenta mas tarde.");
+            std::process::exit(1)
+        }
+
+        let opcion = input.parse().expect("Esperaba un numero");
+
+        match opcion {
+            1 => fibonacci(),
+            2 => persona(),
+            3 => binario(),
+            4 => decimal(),
+            5 => factorial(),
+            _ => opcion_invalida(),
+        }
+
+        fn opcion_invalida () {
+            println!("La opcion que me indicaste no es la correcta. Intenta mas tarde.");
+            std::process::exit(1)
+        }
+    }
+
+    mensaje_selector()
+}
+
 //Implementacion de la secuencia Fibonacci
 pub fn fibonacci() {
     fn imp_fibonacci() {
-        println!("\n--- Implementacion Fibonacci ---");
+        println!("\n--- Calculo de Secuencia Fibonacci ---\n");
         println!("Cuantos numeros de la secuencia quieres ver:");
 
         let mut secuencia = secuencia();
@@ -13,7 +61,7 @@ pub fn fibonacci() {
 
     fn fib(numeros: &mut Vec<i32>) {
         println!(
-            "Los primeros {} numeros de la secuencia Fibonacci son: ",
+            "\nLos primeros {} numeros de la secuencia Fibonacci son: ",
             numeros.len()
         );
         for i in 2..numeros.len() {
@@ -115,8 +163,8 @@ pub fn binario() {
         let mut numero = String::new();
         std::io::stdin()
             .read_line(&mut numero)
-            .expect("Necesito un numero para seguir");
-        let numero = numero.trim().parse().expect("Esto deberia ser un numero.");
+            .expect("\nNecesito un numero para seguir");
+        let numero = numero.trim().parse().expect("\nEsto deberia ser un numero.");
 
         let base = numero;
         (base, numero)
@@ -135,7 +183,7 @@ pub fn binario() {
 
         let binario = binario.as_str().chars().rev().collect::<String>();
 
-        println!("El número {} convertido en binario es: {}", numero, binario);
+        println!("\nEl número {} convertido en binario es: {}", numero, binario);
     }
 
     a_binario()
@@ -155,7 +203,7 @@ pub fn decimal() {
         let mut input = String::new();
         std::io::stdin()
             .read_line(&mut input)
-            .expect("Necesito un numero para seguir");
+            .expect("\nNecesito un numero para seguir");
         let input = input.trim();
 
         if !verificar_bin(&input) {
@@ -178,7 +226,7 @@ pub fn decimal() {
 
     fn volver_dec(binario: (String, String, bool)) {
         if !binario.2 {
-            println!("El numero que ingresaste no es binario.");
+            println!("\nEl numero que ingresaste no es binario.");
             return;
         }
 
@@ -197,7 +245,7 @@ pub fn decimal() {
             decimal += numero;
         }
 
-        println!("El binario {} convertido a decimal es: {}", numero, decimal)
+        println!("\nEl binario {} convertido a decimal es: {}", numero, decimal)
     }
 
     a_decimal();
@@ -215,18 +263,18 @@ pub fn factorial () {
         println!("\nDame un numero para calcular: ");
         let mut input = String::new();
 
-        std::io::stdin().read_line(&mut input).expect("Necesito informacion para comenzar");
+        std::io::stdin().read_line(&mut input).expect("\nNecesito informacion para comenzar");
 
         let input = input.trim();
 
         let verificador = Regex::new(r"^-[0-9]+$").unwrap();
 
         if verificador.is_match(&input) {
-            println!("Este programa no recibe numeros negativos, letras y/o simbolos");
+            println!("\nEste programa no recibe numeros negativos, letras y/o simbolos");
             std::process::exit(1)
         }
 
-        let base = input.parse().expect("Esperaba un numero");
+        let base = input.parse().expect("\nEsperaba un numero");
 
         base
     }
