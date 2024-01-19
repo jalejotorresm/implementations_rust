@@ -1,7 +1,4 @@
-use num_bigint::BigUint;
-use regex::Regex;
-
-//Selector de implementaciones
+/*Selector de implementaciones
 pub fn selector () {
     fn mensaje_selector () {
         println!("Estas son las opciones disponibles: \n");
@@ -47,9 +44,9 @@ pub fn selector () {
     }
 
     mensaje_selector()
-}
+}*/
 
-//Implementacion de la secuencia Fibonacci
+/*Implementacion de la secuencia Fibonacci
 pub fn fibonacci() {
     fn imp_fibonacci() {
         println!("\n--- Calculo de Secuencia Fibonacci ---\n");
@@ -94,9 +91,9 @@ pub fn fibonacci() {
     }
 
     imp_fibonacci()
-}
+}*/
 
-//Implementacion de instancia Struct y metodos
+/*Implementacion de instancia Struct y metodos
 pub fn persona() {
     fn imp_persona() {
         println!("\n--- Implementacion Structs y Metodos ---");
@@ -147,9 +144,9 @@ pub fn persona() {
     }
 
     imp_persona();
-}
+}*/
 
-//Conversion de Decimal a Binario
+/*Conversion de Decimal a Binario
 pub fn binario() {
     fn a_binario() {
         println!("\n--- Conversor de Decimal a Binario ---\n");
@@ -187,9 +184,9 @@ pub fn binario() {
     }
 
     a_binario()
-}
+}*/
 
-//Conversion de Binario a Decimal
+/*Conversion de Binario a Decimal
 pub fn decimal() {
     fn a_decimal() {
         println!("\n--- Conversor de Binario a Decimal ---\n");
@@ -249,9 +246,9 @@ pub fn decimal() {
     }
 
     a_decimal();
-}
+}*/
 
-//Calculo de un factorial
+/*Calculo de un factorial
 pub fn factorial () {
     fn hacer_factorial () {
         print!("\n--- Calculadora de Factoriales ---\n");
@@ -300,4 +297,4 @@ pub fn factorial () {
     } 
 
     hacer_factorial();
-}
+}*/
