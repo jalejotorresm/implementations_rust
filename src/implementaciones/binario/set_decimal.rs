@@ -5,7 +5,10 @@ pub fn set_decimal() -> (i32, i32) {
     std::io::stdin()
         .read_line(&mut numero)
         .expect("\nNecesito un numero para seguir");
-    let numero = numero.trim().parse().expect("\nEsto deberia ser un numero.");
+    let numero = numero
+        .trim()
+        .parse()
+        .expect("\nEsto deberia ser un numero.");
 
     let base = numero;
     (base, numero)

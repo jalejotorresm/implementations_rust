@@ -1,10 +1,12 @@
 use regex::Regex;
 
-pub fn set_numero () -> u128 {
+pub fn set_numero() -> u128 {
     println!("\nDame un numero para calcular: ");
     let mut input = String::new();
 
-    std::io::stdin().read_line(&mut input).expect("\nNecesito informacion para comenzar");
+    std::io::stdin()
+        .read_line(&mut input)
+        .expect("\nNecesito informacion para comenzar");
 
     let input = input.trim();
 
