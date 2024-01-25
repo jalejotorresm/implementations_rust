@@ -285,7 +285,7 @@ pub fn factorial () {
 
         match base {
             x if x == cero || x == uno => uno,
-            _ => base * set_factorial(numero -1) 
+            _ => base * set_factorial(numero -1)
         }
     }
 
@@ -294,7 +294,7 @@ pub fn factorial () {
         let factorial = set_factorial(base);
 
         println!("\nEl factorial de {} es: {}\n", base, factorial);
-    } 
+    }
 
     hacer_factorial();
 }*/

@@ -1,4 +1,4 @@
-use crate::implementaciones::binario::{set_decimal::set_decimal, set_binario::set_binario};
+use crate::implementaciones::binario::{set_binario::set_binario, set_decimal::set_decimal};
 
 pub fn binario() {
     println!("\n--- Conversor de Decimal a Binario ---\n");

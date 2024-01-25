@@ -1,5 +1,5 @@
-use crate::implementaciones::fibonacci::secuencia::secuencia;
 use crate::implementaciones::fibonacci::fib::fib;
+use crate::implementaciones::fibonacci::secuencia::secuencia;
 
 pub fn fibonacci() {
     println!("\n--- Calculo de Secuencia Fibonacci ---\n");

@@ -19,5 +19,8 @@ pub fn set_decimal(binario: (String, String, bool)) {
         decimal += numero;
     }
 
-    println!("\nEl binario {} convertido a decimal es: {}", numero, decimal)
+    println!(
+        "\nEl binario {} convertido a decimal es: {}",
+        numero, decimal
+    )
 }

@@ -7,7 +7,13 @@ pub fn fib(numeros: &mut Vec<i32>) {
         numeros[i] = numeros[i - 2] + numeros[i - 1];
     }
     for i in 0..numeros.len() {
-        print!("{}, ", numeros[i]);
+        if i < (numeros.len() - 2){
+            print!("{}, ", numeros[i]);
+        } else if i == (numeros.len()-2) {
+            print!("{} y ", numeros[i])
+        } else {
+            print!("{}.", numeros[i])
+        }
     }
 
     print!("\n")

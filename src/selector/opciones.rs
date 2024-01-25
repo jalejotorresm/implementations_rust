@@ -1,10 +1,15 @@
-use crate::implementaciones::{persona::persona::persona, decimal::decimal::decimal, fibonacci::fibonacci::fibonacci, binario::binario::binario, factorial::factorial::factorial};
+use crate::implementaciones::{
+    binario::binario::binario, decimal::decimal::decimal, factorial::factorial::factorial,
+    fibonacci::fibonacci::fibonacci, persona::persona::persona,
+};
 use regex::Regex;
 
-pub fn opciones () {
+pub fn opciones() {
     let mut input = String::new();
 
-    std::io::stdin().read_line(&mut input).expect("Necesito una opcion para continuar");
+    std::io::stdin()
+        .read_line(&mut input)
+        .expect("Necesito una opcion para continuar");
 
     let input = input.trim();
 
@@ -26,7 +31,7 @@ pub fn opciones () {
         _ => opcion_invalida(),
     }
 
-    fn opcion_invalida () {
+    fn opcion_invalida() {
         println!("La opcion que me indicaste no es la correcta. Intenta mas tarde.");
         std::process::exit(1)
     }

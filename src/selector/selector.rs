@@ -1,6 +1,6 @@
 use crate::selector::opciones::opciones;
 
-pub fn selector () {
+pub fn selector() {
     println!("Estas son las opciones disponibles: \n");
     println!("1 - Calcula la Secuencia de Fibonacci");
     println!("2 - Crea un struct de persona con tu nombre y edad y hazlo saludar");
