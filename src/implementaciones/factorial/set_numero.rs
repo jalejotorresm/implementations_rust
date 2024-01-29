@@ -1,23 +1,21 @@
+use inquire::Text;
 use regex::Regex;
 
 pub fn set_numero() -> u128 {
-    println!("\nDame un numero para calcular: ");
-    let mut input = String::new();
+    let mut input = Text::new("Dame un numero para calcular:\n")
+        .prompt()
+        .unwrap();
 
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("\nNecesito informacion para comenzar");
+    let verificador = Regex::new(r"^[0-9]+$").unwrap();
 
-    let input = input.trim();
-
-    let verificador = Regex::new(r"^-[0-9]+$").unwrap();
-
-    if verificador.is_match(&input) {
-        println!("\nEste programa no recibe numeros negativos, letras y/o simbolos");
-        std::process::exit(1)
+    while !(verificador.is_match(&input)) {
+        println!();
+        input = Text::new("Respuesta errada. Dame un numero entero positivo por favor:\n")
+            .prompt()
+            .unwrap();
     }
 
-    let base = input.parse().expect("\nEsperaba un numero");
+    let numero = input.trim().parse().unwrap();
 
-    base
+    numero
 }

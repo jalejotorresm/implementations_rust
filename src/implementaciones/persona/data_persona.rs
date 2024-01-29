@@ -1,3 +1,6 @@
+use inquire::Text;
+use regex::Regex;
+
 pub struct Persona {
     pub nombre: String,
     pub edad: u8,
@@ -6,29 +9,38 @@ pub struct Persona {
 impl Persona {
     pub fn saludar(&self) {
         println!(
-            "Hola, eres {} y tienes {} años de edad.",
+            "Hola, eres {} y tienes {} años de edad.\n",
             self.nombre, self.edad
         )
     }
 
     pub fn set_data(&mut self) {
-        println!("Dime tu nombre:");
+        let mut nombre = Text::new("Dime tu nombre:\n").prompt().unwrap();
 
-        let mut nombre = String::new();
-        std::io::stdin()
-            .read_line(&mut nombre)
-            .expect("Necesito un nombre para continuar");
+        let nombre_test = Regex::new(r"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+$").unwrap();
+
+        while !(nombre_test.is_match(&nombre)){
+            println!();
+            nombre = Text::new("Informacion incorrecta. Dime tu nombre por favor:\n").prompt().unwrap();
+        }
+
         self.nombre = nombre.trim().to_string();
 
-        print!("\n");
-        println!("Dime tu edad:");
+        println!();
 
-        let mut edad = String::new();
-        std::io::stdin()
-            .read_line(&mut edad)
-            .expect("Necesito tu edad para continuar");
-        self.edad = edad.trim().parse().expect("Tu edad debe ser un numero.");
+        let mut edad = Text::new("Dime tu edad:\n").prompt().unwrap();
 
-        print!("\n");
+        let edad_test = Regex::new(r"^[0-9]+$").unwrap();
+
+        while !(edad_test.is_match(&edad)) {
+            println!();
+            edad = Text::new("Informacion incorrecta. Dime tu edad por favor:\n").prompt().unwrap();
+        }
+
+        self.edad = edad.trim().parse().unwrap();
+
+        println!();
+
+        self.saludar()
     }
 }

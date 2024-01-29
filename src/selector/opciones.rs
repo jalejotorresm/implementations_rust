@@ -1,38 +1,27 @@
-use crate::implementaciones::{
-    binario::binario::binario, decimal::decimal::decimal, factorial::factorial::factorial,
-    fibonacci::fibonacci::fibonacci, persona::persona::persona,
-};
-use regex::Regex;
+use inquire::Select;
 
-pub fn opciones() {
-    let mut input = String::new();
+pub fn opciones() -> &'static str {
+    let opciones = vec![
+        "Calculo de Secuencia de Fibonacci",
+        "Implementacion de Persona",
+        "Conversor Decimal a Binario",
+        "Conversor Binario a Decimal",
+        "Calculadora de Factoriales",
+    ];
 
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Necesito una opcion para continuar");
+    let seleccion = Select::new("Selecciona la opcion que deseas explorar:", opciones)
+        .without_help_message()
+        .prompt()
+        .unwrap();
 
-    let input = input.trim();
+    let eleccion = match seleccion {
+        "Calculo de Secuencia de Fibonacci" => "fibonacci",
+        "Implementacion de Persona" => "persona",
+        "Conversor Decimal a Binario" => "binario",
+        "Conversor Binario a Decimal" => "decimal",
+        "Calculadora de Factoriales" => "factorial",
+        _ => todo!(),
+    };
 
-    let regex = Regex::new(r"^[0-9]+$").unwrap();
-
-    if !(regex.is_match(input)) {
-        println!("\nLa opcion que me diste no es un numero. Intenta mas tarde.");
-        std::process::exit(1)
-    }
-
-    let opcion = input.parse().expect("Esperaba un numero");
-
-    match opcion {
-        1 => fibonacci(),
-        2 => persona(),
-        3 => binario(),
-        4 => decimal(),
-        5 => factorial(),
-        _ => opcion_invalida(),
-    }
-
-    fn opcion_invalida() {
-        println!("La opcion que me indicaste no es la correcta. Intenta mas tarde.");
-        std::process::exit(1)
-    }
+    eleccion
 }

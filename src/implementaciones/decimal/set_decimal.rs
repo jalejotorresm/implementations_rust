@@ -1,9 +1,4 @@
-pub fn set_decimal(binario: (String, String, bool)) {
-    if !binario.2 {
-        println!("\nEl numero que ingresaste no es binario.");
-        return;
-    }
-
+pub fn set_decimal(binario: (String, String)) {
     let base = binario.0.chars().rev().collect::<String>();
     let numero = binario.1;
 
@@ -20,7 +15,7 @@ pub fn set_decimal(binario: (String, String, bool)) {
     }
 
     println!(
-        "\nEl binario {} convertido a decimal es: {}",
+        "\nEl binario {} convertido a decimal es: {}\n",
         numero, decimal
     )
 }

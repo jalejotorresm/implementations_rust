@@ -10,5 +10,4 @@ pub fn persona() {
     };
 
     humano.set_data();
-    humano.saludar();
 }

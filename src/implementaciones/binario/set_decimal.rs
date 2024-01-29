@@ -1,14 +1,21 @@
-pub fn set_decimal() -> (i32, i32) {
-    println!("Ingresa el número a convertir:");
+use inquire::Text;
+use regex::Regex;
 
-    let mut numero = String::new();
-    std::io::stdin()
-        .read_line(&mut numero)
-        .expect("\nNecesito un numero para seguir");
-    let numero = numero
-        .trim()
-        .parse()
-        .expect("\nEsto deberia ser un numero.");
+pub fn set_decimal() -> (i32, i32) {
+    let mut numero = Text::new("Ingresa el número a convertir:\n")
+        .prompt()
+        .unwrap();
+
+    let verificador = Regex::new(r"^[0-9]+$").unwrap();
+
+    while !(verificador.is_match(&numero)) {
+        println!();
+        numero = Text::new("Informacion incorrecta. Ingresa un numero positivo por favor:\n")
+            .prompt()
+            .unwrap();
+    }
+
+    let numero = numero.trim().parse().unwrap();
 
     let base = numero;
     (base, numero)
