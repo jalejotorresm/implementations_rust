@@ -12,7 +12,7 @@ pub fn set_binario(decimal: (i32, i32)) {
     let binario = binario.as_str().chars().rev().collect::<String>();
 
     println!(
-        "\nEl número {} convertido en binario es: {}",
+        "\nEl número {} convertido en binario es: {}\n",
         numero, binario
     );
 }
