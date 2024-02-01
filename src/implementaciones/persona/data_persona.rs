@@ -19,9 +19,11 @@ impl Persona {
 
         let nombre_test = Regex::new(r"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+$").unwrap();
 
-        while !(nombre_test.is_match(&nombre)){
+        while !(nombre_test.is_match(&nombre)) {
             println!();
-            nombre = Text::new("Informacion incorrecta. Dime tu nombre por favor:\n").prompt().unwrap();
+            nombre = Text::new("Informacion incorrecta. Dime tu nombre por favor:\n")
+                .prompt()
+                .unwrap();
         }
 
         self.nombre = nombre.trim().to_string();
@@ -34,7 +36,9 @@ impl Persona {
 
         while !(edad_test.is_match(&edad)) {
             println!();
-            edad = Text::new("Informacion incorrecta. Dime tu edad por favor:\n").prompt().unwrap();
+            edad = Text::new("Informacion incorrecta. Dime tu edad por favor:\n")
+                .prompt()
+                .unwrap();
         }
 
         self.edad = edad.trim().parse().unwrap();
