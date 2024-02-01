@@ -11,7 +11,7 @@ Para ejecutar este proyecto de forma local, realiza los siguientes pasos:
 Clona el proyecto:
 
 ```bash
-  $ git clone https://link-to-project
+  $ git clone https://github.com/jalejotorresm/implementations_rust.git
 ```
 
 Ubicate dentro del directorio del proyecto:
@@ -31,15 +31,12 @@ Una vez en ejecucion, te recibira el siguiente menu principal:
 ```bash
 ------ Bienvenido a mi Coleccion de Miniprogramas en Rust ------
 
-Estas son las opciones disponibles:
-
-1 - Calcula la Secuencia de Fibonacci
-2 - Crea un struct de Persona con tu nombre y edad y hazlo saludar
-3 - Convierte de un numero decimal a binario
-4 - Convierte de un numero binario a decimal
-5 - Calcula el Factorial de un numero
-
-Selecciona la opcion que deseas explorar:
+? Selecciona la opcion que deseas explorar:
+> Calculo de Secuencia de Fibonacci
+  Implementacion de Persona
+  Conversor Decimal a Binario
+  Conversor Binario a Decimal
+  Calculadora de Factoriales
 ```
 
 Selecciona la opcion que mas te llame la atencion e interactua con el programa.

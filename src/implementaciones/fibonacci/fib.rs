@@ -2,7 +2,7 @@ use crate::implementaciones::fibonacci::secuencia::secuencia;
 
 pub fn fib() {
     let mut numeros = secuencia();
-    
+
     println!(
         "\nLos primeros {} numeros de la secuencia Fibonacci son: ",
         numeros.len()
