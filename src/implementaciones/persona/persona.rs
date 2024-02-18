@@ -4,10 +4,7 @@ pub fn persona() {
     println!("\n--- Implementacion Structs y Metodos ---");
     print!("\n");
 
-    let mut humano = Persona {
-        nombre: String::new(),
-        edad: 0,
-    };
+    let mut humano = Persona::new();
 
     humano.set_data();
 }

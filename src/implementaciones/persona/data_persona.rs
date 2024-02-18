@@ -7,7 +7,14 @@ pub struct Persona {
 }
 
 impl Persona {
-    pub fn saludar(&self) {
+    pub fn new() -> Self {
+        Self {
+            nombre: "".to_owned(),
+            edad: 0,
+        }
+    }
+
+    fn saludar(&self) {
         println!(
             "Hola, eres {} y tienes {} años de edad.\n",
             self.nombre, self.edad
